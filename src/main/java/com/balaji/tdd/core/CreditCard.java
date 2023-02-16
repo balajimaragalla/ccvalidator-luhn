@@ -36,7 +36,12 @@ public class CreditCard {
     }
 
     private void setParity (int creditCardLength) {
-        this.parity = creditCardLength % 2;;
+        try {
+            this.parity = creditCardLength % 2;
+        } catch (ArithmeticException e) {
+            System.out.println(
+                "Index out of size of the array");
+        }
     }
 
     public Luhn getCreditCardValidator () {

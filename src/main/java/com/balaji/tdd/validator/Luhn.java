@@ -11,10 +11,17 @@ public class Luhn {
 	}
 
     public int doubleIfParity (int index, int digit) {
+        try {
     	if (index % 2 == creditCard.getParity()) {
     			digit = digit * 2;
     	}
-    	return digit;
+    	    return digit;
+            }
+        catch (ArithmeticException e) {
+            System.out.println(
+                "Index out of size of the array");
+            return digit;
+        }
     }
 
     public int adjustDigitIfGreaterThanNine (int digit) {
@@ -42,5 +49,6 @@ public class Luhn {
 		isValid = (sum % 10) == 0;
 
 		return isValid;
+
 	}
 }
